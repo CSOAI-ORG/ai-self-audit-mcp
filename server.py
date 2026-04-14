@@ -6,6 +6,13 @@ from typing import Optional
 from collections import defaultdict
 from mcp.server.fastmcp import FastMCP
 
+# Tier authentication (connects to Stripe subscriptions)
+try:
+    from auth_middleware import get_tier_from_api_key, Tier, TIER_LIMITS
+    AUTH_AVAILABLE = True
+except ImportError:
+    AUTH_AVAILABLE = False  # Runs without auth in dev mode
+
 FREE_DAILY_LIMIT = 20
 _usage = defaultdict(list)
 _audit_log = []
