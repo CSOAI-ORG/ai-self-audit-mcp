@@ -46,8 +46,8 @@ def self_audit(system_description: str, article: str = "all", api_key: str = "")
     """AI agent self-audits EU AI Act compliance. Call: 'Am I compliant right now?'"""
     allowed, msg, tier = check_access(api_key)
     if not allowed:
-        return json.dumps({"error": msg, "upgrade_url": "https://meok.ai/pricing"})
-    if err := _check_rate_limit(): return json.dumps({"error": err})
+        return {"error": msg, "upgrade_url": "https://meok.ai/pricing"}
+    if err := _check_rate_limit(): return {"error": err}
     desc = system_description.lower()
     results = {}
     passed = 0
@@ -60,19 +60,19 @@ def self_audit(system_description: str, article: str = "all", api_key: str = "")
     ts = datetime.now(timezone.utc).isoformat()
     h = hashlib.sha256(f"{ts}{system_description}".encode()).hexdigest()[:12]
     _audit_log.append({"id": h, "time": ts, "score": score})
-    return json.dumps({"audit_id": h, "timestamp": ts, "compliance_score": score,
+    return {"audit_id": h, "timestamp": ts, "compliance_score": score,
         "assessment": "COMPLIANT" if score >= 70 else "PARTIAL" if score >= 40 else "NON-COMPLIANT",
         "passed": passed, "total": total, "checks": results,
         "days_until_enforcement": (datetime(2026,8,2,tzinfo=timezone.utc)-datetime.now(timezone.utc)).days,
-    }, indent=2)
+    }
 
 @mcp.tool()
 def audit_conversation(text: str, api_key: str = "") -> str:
     """Audit conversation for bias, PII, manipulation, transparency issues."""
     allowed, msg, tier = check_access(api_key)
     if not allowed:
-        return json.dumps({"error": msg, "upgrade_url": "https://meok.ai/pricing"})
-    if err := _check_rate_limit(): return json.dumps({"error": err})
+        return {"error": msg, "upgrade_url": "https://meok.ai/pricing"}
+    if err := _check_rate_limit(): return {"error": err}
     issues = []
     checks = {"manipulation": ["ignore previous", "system prompt", "jailbreak", "bypass"],
               "pii": ["social security", "credit card", "passport number"],
@@ -82,31 +82,31 @@ def audit_conversation(text: str, api_key: str = "") -> str:
         for p in patterns:
             if p in text.lower():
                 issues.append({"type": cat, "pattern": p, "severity": "high" if cat in ("manipulation","pii") else "medium"})
-    return json.dumps({"status": "CLEAN" if not issues else "ISSUES", "count": len(issues), "issues": issues}, indent=2)
+    return {"status": "CLEAN" if not issues else "ISSUES", "count": len(issues), "issues": issues}
 
 @mcp.tool()
 def get_certificate(system_name: str, description: str, api_key: str = "") -> str:
     """Generate timestamped compliance certificate for audit trail."""
     allowed, msg, tier = check_access(api_key)
     if not allowed:
-        return json.dumps({"error": msg, "upgrade_url": "https://meok.ai/pricing"})
-    if err := _check_rate_limit(): return json.dumps({"error": err})
+        return {"error": msg, "upgrade_url": "https://meok.ai/pricing"}
+    if err := _check_rate_limit(): return {"error": err}
     ts = datetime.now(timezone.utc)
     desc = description.lower()
     passed = sum(1 for kws in COMPLIANCE_CHECKS.values() if any(k in desc for k in kws))
     score = round(passed / len(COMPLIANCE_CHECKS) * 100, 1)
     h = hashlib.sha256(f"{system_name}{ts.isoformat()}{score}".encode()).hexdigest()
-    return json.dumps({"cert_id": f"MEOK-{h[:12].upper()}", "issued": ts.isoformat(),
+    return {"cert_id": f"MEOK-{h[:12].upper()}", "issued": ts.isoformat(),
         "valid_until": (ts+timedelta(days=90)).isoformat(), "system": system_name,
         "score": score, "status": "compliant" if score>=70 else "partial" if score>=40 else "non_compliant",
-        "hash": h, "issuer": "MEOK AI Labs"}, indent=2)
+        "hash": h, "issuer": "MEOK AI Labs"}
 
 @mcp.tool()
 def regulatory_pulse(api_key: str = "") -> str:
     """Current regulatory deadlines and enforcement status."""
     allowed, msg, tier = check_access(api_key)
     if not allowed:
-        return json.dumps({"error": msg, "upgrade_url": "https://meok.ai/pricing"})
+        return {"error": msg, "upgrade_url": "https://meok.ai/pricing"}
     now = datetime.now(timezone.utc)
     deadlines = [
         ("EU AI Act Prohibited", "2025-02-02", "IN FORCE"),
@@ -120,15 +120,15 @@ def regulatory_pulse(api_key: str = "") -> str:
         d = datetime.strptime(date, "%Y-%m-%d").replace(tzinfo=timezone.utc)
         days = (d - now).days
         result.append({"framework": name, "date": date, "status": status if days>0 else "IN FORCE", "days": days})
-    return json.dumps({"deadlines": result}, indent=2)
+    return {"deadlines": result}
 
 @mcp.tool()
 def get_audit_trail(api_key: str = "") -> str:
     """Return audit trail of all self-audit checks."""
     allowed, msg, tier = check_access(api_key)
     if not allowed:
-        return json.dumps({"error": msg, "upgrade_url": "https://meok.ai/pricing"})
-    return json.dumps({"total": len(_audit_log), "audits": _audit_log[-50:]}, indent=2)
+        return {"error": msg, "upgrade_url": "https://meok.ai/pricing"}
+    return {"total": len(_audit_log), "audits": _audit_log[-50:]}
 
 if __name__ == "__main__":
     mcp.run()

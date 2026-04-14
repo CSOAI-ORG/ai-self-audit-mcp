@@ -1,8 +1,36 @@
 name: ai-self-audit-mcp
-description: MEOK AI Labs — ai self audit
-vendor: MEOK AI Labs
-homepage: https://meok.ai
-repository: https://github.com/CSOAI-ORG/ai-self-audit-mcp
-license: MIT
-runtime: python
-entrypoint: server.py
+description: "> **By [MEOK AI Labs](https://meok.ai)** \u2014 The killer move nobody\
+  \ else has made."
+version: 1.0.0
+tools:
+- name: self_audit
+  description: 'AI agent self-audits EU AI Act compliance. Call: ''Am I compliant
+    right now?'''
+  parameters:
+  - name: system_description
+    type: string
+    required: true
+  - name: article
+    type: string
+    required: false
+- name: audit_conversation
+  description: Audit conversation for bias, PII, manipulation, transparency issues.
+  parameters:
+  - name: text
+    type: string
+    required: true
+- name: get_certificate
+  description: Generate timestamped compliance certificate for audit trail.
+  parameters:
+  - name: system_name
+    type: string
+    required: true
+  - name: description
+    type: string
+    required: true
+- name: regulatory_pulse
+  description: Current regulatory deadlines and enforcement status.
+  parameters: []
+- name: get_audit_trail
+  description: Return audit trail of all self-audit checks.
+  parameters: []

@@ -1,1 +1,77 @@
-{"name":"ai-self-audit-mcp","vendor":"MEOK AI Labs","homepage":"https://meok.ai","repository":"https://github.com/CSOAI-ORG/ai-self-audit-mcp","runtime":"python","entrypoint":"server.py"}
+{
+  "name": "ai-self-audit-mcp",
+  "description": "> **By [MEOK AI Labs](https://meok.ai)** \u2014 The killer move nobody else has made.",
+  "version": "1.0.0",
+  "tools": [
+    {
+      "name": "self_audit",
+      "description": "AI agent self-audits EU AI Act compliance. Call: 'Am I compliant right now?'",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "system_description": {
+            "type": "string"
+          },
+          "article": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "system_description"
+        ]
+      }
+    },
+    {
+      "name": "audit_conversation",
+      "description": "Audit conversation for bias, PII, manipulation, transparency issues.",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "text": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "text"
+        ]
+      }
+    },
+    {
+      "name": "get_certificate",
+      "description": "Generate timestamped compliance certificate for audit trail.",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "system_name": {
+            "type": "string"
+          },
+          "description": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "system_name",
+          "description"
+        ]
+      }
+    },
+    {
+      "name": "regulatory_pulse",
+      "description": "Current regulatory deadlines and enforcement status.",
+      "parameters": {
+        "type": "object",
+        "properties": {},
+        "required": []
+      }
+    },
+    {
+      "name": "get_audit_trail",
+      "description": "Return audit trail of all self-audit checks.",
+      "parameters": {
+        "type": "object",
+        "properties": {},
+        "required": []
+      }
+    }
+  ]
+}
