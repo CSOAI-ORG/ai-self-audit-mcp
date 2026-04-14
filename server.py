@@ -5,6 +5,9 @@ from datetime import datetime, timezone, timedelta
 from typing import Optional
 from collections import defaultdict
 from mcp.server.fastmcp import FastMCP
+import sys, os
+sys.path.insert(0, os.path.expanduser("~/clawd/meok-labs-engine/shared"))
+from auth_middleware import check_access
 
 # Tier authentication (connects to Stripe subscriptions)
 try:
@@ -39,8 +42,11 @@ COMPLIANCE_CHECKS = {
 }
 
 @mcp.tool()
-def self_audit(system_description: str, article: str = "all") -> str:
+def self_audit(system_description: str, article: str = "all", api_key: str = "") -> str:
     """AI agent self-audits EU AI Act compliance. Call: 'Am I compliant right now?'"""
+    allowed, msg, tier = check_access(api_key)
+    if not allowed:
+        return json.dumps({"error": msg, "upgrade_url": "https://meok.ai/pricing"})
     if err := _check_rate_limit(): return json.dumps({"error": err})
     desc = system_description.lower()
     results = {}
@@ -61,8 +67,11 @@ def self_audit(system_description: str, article: str = "all") -> str:
     }, indent=2)
 
 @mcp.tool()
-def audit_conversation(text: str) -> str:
+def audit_conversation(text: str, api_key: str = "") -> str:
     """Audit conversation for bias, PII, manipulation, transparency issues."""
+    allowed, msg, tier = check_access(api_key)
+    if not allowed:
+        return json.dumps({"error": msg, "upgrade_url": "https://meok.ai/pricing"})
     if err := _check_rate_limit(): return json.dumps({"error": err})
     issues = []
     checks = {"manipulation": ["ignore previous", "system prompt", "jailbreak", "bypass"],
@@ -76,8 +85,11 @@ def audit_conversation(text: str) -> str:
     return json.dumps({"status": "CLEAN" if not issues else "ISSUES", "count": len(issues), "issues": issues}, indent=2)
 
 @mcp.tool()
-def get_certificate(system_name: str, description: str) -> str:
+def get_certificate(system_name: str, description: str, api_key: str = "") -> str:
     """Generate timestamped compliance certificate for audit trail."""
+    allowed, msg, tier = check_access(api_key)
+    if not allowed:
+        return json.dumps({"error": msg, "upgrade_url": "https://meok.ai/pricing"})
     if err := _check_rate_limit(): return json.dumps({"error": err})
     ts = datetime.now(timezone.utc)
     desc = description.lower()
@@ -90,8 +102,11 @@ def get_certificate(system_name: str, description: str) -> str:
         "hash": h, "issuer": "MEOK AI Labs"}, indent=2)
 
 @mcp.tool()
-def regulatory_pulse() -> str:
+def regulatory_pulse(api_key: str = "") -> str:
     """Current regulatory deadlines and enforcement status."""
+    allowed, msg, tier = check_access(api_key)
+    if not allowed:
+        return json.dumps({"error": msg, "upgrade_url": "https://meok.ai/pricing"})
     now = datetime.now(timezone.utc)
     deadlines = [
         ("EU AI Act Prohibited", "2025-02-02", "IN FORCE"),
@@ -108,8 +123,11 @@ def regulatory_pulse() -> str:
     return json.dumps({"deadlines": result}, indent=2)
 
 @mcp.tool()
-def get_audit_trail() -> str:
+def get_audit_trail(api_key: str = "") -> str:
     """Return audit trail of all self-audit checks."""
+    allowed, msg, tier = check_access(api_key)
+    if not allowed:
+        return json.dumps({"error": msg, "upgrade_url": "https://meok.ai/pricing"})
     return json.dumps({"total": len(_audit_log), "audits": _audit_log[-50:]}, indent=2)
 
 if __name__ == "__main__":
