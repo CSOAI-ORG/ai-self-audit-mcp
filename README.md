@@ -1,25 +1,55 @@
 # AI Self-Audit MCP Server
 
-> **By [MEOK AI Labs](https://meok.ai)** — The killer move nobody else has made.
+> By [MEOK AI Labs](https://meok.ai) — AI agents audit their own EU AI Act compliance in real-time
 
-AI agents audit their OWN compliance in real-time. Claude asks "Am I compliant?" and gets an instant assessment.
+## Installation
 
-**The agents are the customers, not just humans.**
+```bash
+pip install ai-self-audit-mcp
+```
+
+## Usage
+
+```bash
+# Run standalone
+python server.py
+
+# Or via MCP
+mcp install ai-self-audit-mcp
+```
 
 ## Tools
 
-| Tool | Description |
-|------|-------------|
-| `self_audit` | AI self-audits EU AI Act compliance based on system description |
-| `audit_conversation` | Audit live conversation for bias, PII, manipulation, transparency |
-| `get_certificate` | Generate timestamped compliance certificate for audit trail |
-| `regulatory_pulse` | Current enforcement deadlines with countdown |
-| `get_audit_trail` | Full trail of all self-audit checks |
+### `self_audit`
+AI agent self-audits EU AI Act compliance. Checks risk management, data governance, documentation, logging, transparency, human oversight, and accuracy/robustness.
 
-## Why This Matters
+**Parameters:**
+- `system_description` (str): Description of your AI system
+- `article` (str): Specific article to check (default 'all')
 
-August 2, 2026: EU AI Act full enforcement. €35M or 7% turnover fines.
-This MCP lets every AI agent check its own compliance automatically.
+### `audit_conversation`
+Audit conversation for bias, PII, manipulation, and transparency issues.
 
----
-**MEOK AI Labs** | [meok.ai](https://meok.ai) | nicholas@meok.ai
+**Parameters:**
+- `text` (str): Conversation text to audit
+
+### `get_certificate`
+Generate timestamped compliance certificate for audit trail. Valid for 90 days.
+
+**Parameters:**
+- `system_name` (str): Name of the system
+- `description` (str): System description
+
+### `regulatory_pulse`
+Current regulatory deadlines and enforcement status for EU AI Act, South Korea AI Act, UK AI Bill, and more.
+
+### `get_audit_trail`
+Return audit trail of all self-audit checks performed.
+
+## Authentication
+
+Free tier: 20 calls/day. Upgrade at [meok.ai/pricing](https://meok.ai/pricing) for unlimited access.
+
+## License
+
+MIT — MEOK AI Labs
