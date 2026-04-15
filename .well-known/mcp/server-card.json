@@ -1,0 +1,58 @@
+{
+  "name": "ai-self-audit",
+  "description": "MEOK AI Labs \u2014 AI agents audit their own compliance in real-time.",
+  "version": "1.0.0",
+  "protocol_version": "2025-11-25",
+  "publisher": {
+    "name": "MEOK AI Labs",
+    "url": "https://meok.ai",
+    "email": "nicholas@meok.ai"
+  },
+  "repository": "https://github.com/CSOAI-ORG/ai-self-audit-mcp",
+  "license": "MIT",
+  "transport": [
+    "stdio",
+    "streamable-http"
+  ],
+  "authentication": {
+    "type": "api-key",
+    "free_tier": true,
+    "free_limit": "15 calls/day"
+  },
+  "tools": [
+    {
+      "name": "self_audit",
+      "description": "AI agent self-audits EU AI Act compliance. Call: 'Am I compliant right now?'"
+    },
+    {
+      "name": "audit_conversation",
+      "description": "Audit conversation for bias, PII, manipulation, transparency issues."
+    },
+    {
+      "name": "get_certificate",
+      "description": "Generate timestamped compliance certificate for audit trail."
+    },
+    {
+      "name": "regulatory_pulse",
+      "description": "Current regulatory deadlines and enforcement status."
+    },
+    {
+      "name": "get_audit_trail",
+      "description": "Return audit trail of all self-audit checks."
+    }
+  ],
+  "categories": [
+    "AI & Machine Learning",
+    "Agent Infrastructure",
+    "Security & Compliance"
+  ],
+  "pricing": {
+    "free": {
+      "calls_per_day": 15
+    },
+    "pro": {
+      "price": "$29/month",
+      "url": "https://meok.ai/pricing"
+    }
+  }
+}
