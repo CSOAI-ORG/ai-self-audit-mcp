@@ -1,6 +1,5 @@
 name: ai-self-audit-mcp
-description: "> **By [MEOK AI Labs](https://meok.ai)** \u2014 The killer move nobody\
-  \ else has made."
+description: "MEOK AI Labs \u2014 AI agents audit their own compliance in real-time."
 version: 1.0.0
 tools:
 - name: self_audit
