@@ -25,3 +25,6 @@ Repository = "https://github.com/CSOAI-ORG/ai-self-audit-mcp"
 [tool.hatch.build.targets.wheel]
 packages = ["."]
 only-include = ["server.py"]
+
+[project.scripts]
+ai_self_audit_mcp = "server:main"
