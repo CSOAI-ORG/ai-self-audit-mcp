@@ -1,6 +1,6 @@
 {
   "name": "ai-self-audit-mcp",
-  "description": "> **By [MEOK AI Labs](https://meok.ai)** \u2014 MEOK AI Labs \u2014 AI agents audit their own compliance in real-time.",
+  "description": "MCP server for ai self audit. Features self audit, audit conversation, get certificate. From MEOK AI Labs.",
   "version": "1.0.0",
   "tools": [
     {
