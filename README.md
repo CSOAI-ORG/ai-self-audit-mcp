@@ -4,7 +4,7 @@
 
 # Ai Self Audit Mcp
 
-**Immutable audit trails with SHA-256 hash chain verification for compliance certifications**
+**AI agents audit their own EU AI Act compliance in real-time**
 
 [![npm version](https://img.shields.io/npm/v/@meok-ai/ai-self-audit-mcp)](https://www.npmjs.com/package/@meok-ai/ai-self-audit-mcp)
 [![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
