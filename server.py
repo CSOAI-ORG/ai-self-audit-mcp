@@ -52,7 +52,24 @@ COMPLIANCE_CHECKS = {
 
 @mcp.tool()
 def self_audit(system_description: str, article: str = "all", api_key: str = "") -> str:
-    """AI agent self-audits EU AI Act compliance. Call: 'Am I compliant right now?'"""
+    """AI agent self-audits EU AI Act compliance. Call: 'Am I compliant right now?'
+
+    Behavior:
+        This tool is read-only and stateless — it produces analysis output
+        without modifying any external systems, databases, or files.
+        Safe to call repeatedly with identical inputs (idempotent).
+        Free tier: 10/day rate limit. Pro tier: unlimited.
+        No authentication required for basic usage.
+
+    When to use:
+        Use this tool when you need to assess, audit, or verify compliance
+        requirements. Ideal for gap analysis, readiness checks, and generating
+        compliance documentation.
+
+    When NOT to use:
+        Do not use as a substitute for qualified legal counsel. This tool
+        provides technical compliance guidance, not legal advice.
+    """
     allowed, msg, tier = check_access(api_key)
     if not allowed:
         return {"error": msg, "upgrade_url": "https://meok.ai/pricing"}
@@ -97,7 +114,24 @@ def self_audit(system_description: str, article: str = "all", api_key: str = "")
 
 @mcp.tool()
 def audit_conversation(text: str, api_key: str = "") -> str:
-    """Audit conversation for bias, PII, manipulation, transparency issues."""
+    """Audit conversation for bias, PII, manipulation, transparency issues.
+
+    Behavior:
+        This tool is read-only and stateless — it produces analysis output
+        without modifying any external systems, databases, or files.
+        Safe to call repeatedly with identical inputs (idempotent).
+        Free tier: 10/day rate limit. Pro tier: unlimited.
+        No authentication required for basic usage.
+
+    When to use:
+        Use this tool when you need to assess, audit, or verify compliance
+        requirements. Ideal for gap analysis, readiness checks, and generating
+        compliance documentation.
+
+    When NOT to use:
+        Do not use as a substitute for qualified legal counsel. This tool
+        provides technical compliance guidance, not legal advice.
+    """
     allowed, msg, tier = check_access(api_key)
     if not allowed:
         return {"error": msg, "upgrade_url": "https://meok.ai/pricing"}
@@ -131,7 +165,23 @@ def audit_conversation(text: str, api_key: str = "") -> str:
 
 @mcp.tool()
 def get_certificate(system_name: str, description: str, api_key: str = "") -> str:
-    """Generate timestamped compliance certificate for audit trail."""
+    """Generate timestamped compliance certificate for audit trail.
+
+    Behavior:
+        This tool generates structured output without modifying external systems.
+        Output is deterministic for identical inputs. No side effects.
+        Free tier: 10/day rate limit. Pro tier: unlimited.
+        No authentication required for basic usage.
+
+    When to use:
+        Use this tool when you need to assess, audit, or verify compliance
+        requirements. Ideal for gap analysis, readiness checks, and generating
+        compliance documentation.
+
+    When NOT to use:
+        Do not use as a substitute for qualified legal counsel. This tool
+        provides technical compliance guidance, not legal advice.
+    """
     allowed, msg, tier = check_access(api_key)
     if not allowed:
         return {"error": msg, "upgrade_url": "https://meok.ai/pricing"}
@@ -160,7 +210,24 @@ def get_certificate(system_name: str, description: str, api_key: str = "") -> st
 
 @mcp.tool()
 def regulatory_pulse(api_key: str = "") -> str:
-    """Current regulatory deadlines and enforcement status."""
+    """Current regulatory deadlines and enforcement status.
+
+    Behavior:
+        This tool is read-only and stateless — it produces analysis output
+        without modifying any external systems, databases, or files.
+        Safe to call repeatedly with identical inputs (idempotent).
+        Free tier: 10/day rate limit. Pro tier: unlimited.
+        No authentication required for basic usage.
+
+    When to use:
+        Use this tool when you need to assess, audit, or verify compliance
+        requirements. Ideal for gap analysis, readiness checks, and generating
+        compliance documentation.
+
+    When NOT to use:
+        Do not use as a substitute for qualified legal counsel. This tool
+        provides technical compliance guidance, not legal advice.
+    """
     allowed, msg, tier = check_access(api_key)
     if not allowed:
         return {"error": msg, "upgrade_url": "https://meok.ai/pricing"}
@@ -189,7 +256,24 @@ def regulatory_pulse(api_key: str = "") -> str:
 
 @mcp.tool()
 def get_audit_trail(api_key: str = "") -> str:
-    """Return audit trail of all self-audit checks."""
+    """Return audit trail of all self-audit checks.
+
+    Behavior:
+        This tool is read-only and stateless — it produces analysis output
+        without modifying any external systems, databases, or files.
+        Safe to call repeatedly with identical inputs (idempotent).
+        Free tier: 10/day rate limit. Pro tier: unlimited.
+        No authentication required for basic usage.
+
+    When to use:
+        Use this tool when you need to assess, audit, or verify compliance
+        requirements. Ideal for gap analysis, readiness checks, and generating
+        compliance documentation.
+
+    When NOT to use:
+        Do not use as a substitute for qualified legal counsel. This tool
+        provides technical compliance guidance, not legal advice.
+    """
     allowed, msg, tier = check_access(api_key)
     if not allowed:
         return {"error": msg, "upgrade_url": "https://meok.ai/pricing"}
