@@ -1,10 +1,4 @@
 {
-  "name": "ai-self-audit-mcp",
-  "description": "MEOK AI Labs \u2014 ai-self-audit-mcp",
-  "vendor": "MEOK AI Labs",
-  "homepage": "https://meok.ai",
-  "repository": "https://github.com/CSOAI-ORG/ai-self-audit-mcp",
-  "license": "MIT",
-  "runtime": "python",
-  "entryPoint": "mcp-wrapper.py"
+  "$schema": "https://glama.ai/mcp/schemas/server.json",
+  "maintainers": ["CSOAI-ORG"]
 }
