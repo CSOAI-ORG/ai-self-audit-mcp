@@ -1,3 +1,5 @@
+[![ai-self-audit-mcp MCP server](https://glama.ai/mcp/servers/CSOAI-ORG/ai-self-audit-mcp/badges/card.svg)](https://glama.ai/mcp/servers/CSOAI-ORG/ai-self-audit-mcp)
+
 <div align="center">
 
 [![GitHub stars](https://img.shields.io/github/stars/CSOAI-ORG/ai-self-audit-mcp)](https://github.com/CSOAI-ORG/ai-self-audit-mcp/stargazers)
