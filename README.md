@@ -1,45 +1,59 @@
-[![ai-self-audit-mcp MCP server](https://glama.ai/mcp/servers/CSOAI-ORG/ai-self-audit-mcp/badges/score.svg)](https://glama.ai/mcp/servers/CSOAI-ORG/ai-self-audit-mcp)
-[![MCP Registry](https://img.shields.io/badge/MCP_Registry-Published-green)](https://registry.modelcontextprotocol.io)
-[![PyPI](https://img.shields.io/pypi/v/ai-self-audit-mcp)](https://pypi.org/project/ai-self-audit-mcp/)
-
-[![ai-self-audit-mcp MCP server](https://glama.ai/mcp/servers/CSOAI-ORG/ai-self-audit-mcp/badges/card.svg)](https://glama.ai/mcp/servers/CSOAI-ORG/ai-self-audit-mcp)
-
 <div align="center">
 
-[![GitHub stars](https://img.shields.io/github/stars/CSOAI-ORG/ai-self-audit-mcp)](https://github.com/CSOAI-ORG/ai-self-audit-mcp/stargazers)
+# Ai Self Audit MCP
 
-# Ai Self Audit Mcp
+**MCP server for ai self audit mcp operations**
 
-**AI agents audit their own EU AI Act compliance in real-time**
-
-[![npm version](https://img.shields.io/npm/v/@meok-ai/ai-self-audit-mcp)](https://www.npmjs.com/package/@meok-ai/ai-self-audit-mcp)
+[![PyPI](https://img.shields.io/pypi/v/meok-ai-self-audit-mcp)](https://pypi.org/project/meok-ai-self-audit-mcp/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
-[![MEOK AI Labs](https://img.shields.io/badge/MEOK_AI_Labs-255+_servers-purple)](https://meok.ai)
-
-[Installation](#installation) · [Docs](https://csoai.org) · [Report Bug](https://github.com/CSOAI-ORG/ai-self-audit-mcp/issues)
+[![MEOK AI Labs](https://img.shields.io/badge/MEOK_AI_Labs-MCP_Server-purple)](https://meok.ai)
 
 </div>
 
----
+## Overview
+
+Ai Self Audit MCP provides AI-powered tools via the Model Context Protocol (MCP).
+
+## Tools
+
+| Tool | Description |
+|------|-------------|
+| `self_audit` | AI agent self-audits EU AI Act compliance. Call: 'Am I compliant right now?' |
+| `audit_conversation` | Audit conversation for bias, PII, manipulation, transparency issues. |
+| `get_certificate` | Generate timestamped compliance certificate for audit trail. |
+| `regulatory_pulse` | Current regulatory deadlines and enforcement status. |
+| `get_audit_trail` | Return audit trail of all self-audit checks. |
 
 ## Installation
 
 ```bash
-pip install ai-self-audit-mcp
-# or
-npm install -g @meok-ai/ai-self-audit-mcp
+pip install meok-ai-self-audit-mcp
 ```
 
-## Quick Start
+## Usage with Claude Desktop
 
-See the project repository for full documentation and examples.
+Add to your Claude Desktop MCP config (`claude_desktop_config.json`):
 
-## Enterprise Support
+```json
+{
+  "mcpServers": {
+    "ai-self-audit-mcp": {
+      "command": "python",
+      "args": ["-m", "meok_ai_self_audit_mcp.server"]
+    }
+  }
+}
+```
 
-- 📧 nicholas@csoai.org
-- 🌐 [CSOAI.org](https://csoai.org)
+## Usage with FastMCP
+
+```python
+from mcp.server.fastmcp import FastMCP
+
+# This server exposes 5 tool(s) via MCP
+# See server.py for full implementation
+```
 
 ## License
 
-MIT © [CSOAI](https://csoai.org)
-<!-- mcp-name: io.github.CSOAI-ORG/ai-self-audit-mcp -->
+MIT © [MEOK AI Labs](https://meok.ai)
