@@ -1,109 +1,78 @@
-<div align="center">
-
 # Ai Self Audit MCP
 
-**MCP server for ai self audit mcp operations**
+[![MEOK AI Labs](https://img.shields.io/badge/MEOK-AI%20Labs-667eea)](https://meok.ai)
+[![EU AI Act](https://img.shields.io/badge/EU%20AI%20Act-Compliant-22c55e)](https://councilof.ai)
+[![License](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
+[![PyPI](https://img.shields.io/badge/PyPI-Install-3775a9)](https://pypi.org/project/ai_self_audit_mcp/)
 
-[![PyPI](https://img.shields.io/pypi/v/meok-ai-self-audit-mcp)](https://pypi.org/project/meok-ai-self-audit-mcp/)
-[![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
-[![MEOK AI Labs](https://img.shields.io/badge/MEOK_AI_Labs-MCP_Server-purple)](https://meok.ai)
+> AI self-audit MCP — AI agents audit their own EU AI Act compliance in real time with signed certi...
 
-</div>
+AI self-audit MCP — AI agents audit their own EU AI Act compliance in real time with signed certificates.
 
-## Overview
-
-Ai Self Audit MCP provides AI-powered tools via the Model Context Protocol (MCP).
-
-## Tools
-
-| Tool | Description |
-|------|-------------|
-| `self_audit` | AI agent self-audits EU AI Act compliance. Call: 'Am I compliant right now?' |
-| `audit_conversation` | Audit conversation for bias, PII, manipulation, transparency issues. |
-| `get_certificate` | Generate timestamped compliance certificate for audit trail. |
-| `regulatory_pulse` | Current regulatory deadlines and enforcement status. |
-| `get_audit_trail` | Return audit trail of all self-audit checks. |
-
-## Installation
-
-```bash
-pip install meok-ai-self-audit-mcp
-```
-
-## Usage with Claude Desktop
-
-Add to your Claude Desktop MCP config (`claude_desktop_config.json`):
-
-```json
-{
-  "mcpServers": {
-    "ai-self-audit-mcp": {
-      "command": "python",
-      "args": ["-m", "meok_ai_self_audit_mcp.server"]
-    }
-  }
-}
-```
-
-## Usage with FastMCP
-
-```python
-from mcp.server.fastmcp import FastMCP
-
-# This server exposes 5 tool(s) via MCP
-# See server.py for full implementation
-```
-
-## License
-
-MIT © [MEOK AI Labs](https://meok.ai)
-
-<!-- meok-moat-footer-v1 -->
 ---
 
-## Pairs with MEOK Governance Suite
-
-Build something that touches users? You need compliance. MEOK ships 38 governance MCPs that drop in alongside this tool — EU AI Act, DORA, NIS2, CRA, GDPR, ISO 42001, FDA SaMD, MDR, Basel, MiFID II, MiCA, COPPA, and more.
+## 🚀 Quick Start
 
 ```bash
-# One-shot install of the governance pack
-npx meok-setup --pack governance
+# Install via pip
+pip install ai_self_audit_mcp
+
+# Or install via Smithery
+npx -y @smithery/cli@latest install ai-self-audit-mcp --client claude
 ```
 
-Free tier: 10 calls/day per MCP. Pro tier (£79/mo): unlimited + cryptographically signed compliance attestations your auditor verifies independently.
+## ✨ Features
 
-→ Full catalogue: [councilof.ai/catalogue](https://councilof.ai/catalogue)
-→ MEOK AI Labs: [meok.ai](https://meok.ai)
+- HMAC-signed audit logs
+- Hash-chained integrity
+- A2A agent tracking
+- Compliance reporting
+- Tamper-proof records
 
+## 📖 Documentation
 
+- [Full Documentation](https://docs.meok.ai/ai-self-audit-mcp)
+- [API Reference](https://api.meok.ai)
+- [EU AI Act Compliance Guide](https://councilof.ai/compliance)
 
-## Protocol coverage + Universal PAYG
+## 🛡️ Compliance
 
-This MCP is part of MEOK's 47-MCP fleet that bridges every active agent-interop protocol
-and 30+ regulatory frameworks. See the full coverage matrix at [meok.ai/protocols](https://meok.ai/protocols).
+This MCP server is built with **EU AI Act compliance** built-in:
 
-**Agent interop protocols supported (8 live):**
+- ✅ Article 9 — Risk Management System
+- ✅ Article 13 — Transparency & Instructions for Use
+- ✅ Article 15 — Bias Detection & Testing
+- ✅ Article 26 — FRIA Support (where applicable)
+- ✅ Article 50 — AI Content Watermarking (where applicable)
 
-- ✅ **MCP** (Anthropic) — native
-- ✅ **A2A** (Google + Linux Foundation, absorbed IBM ACP Sept 2025)
-- ✅ **IBM ACP** — covered via A2A merge
-- ◐ **Stripe ACP** (Agentic Commerce Protocol) — Q3 bridge via [agent-commerce-protocol-mcp](https://github.com/CSOAI-ORG/agent-commerce-protocol-mcp)
-- ◐ **AP2** (Google Agent Payments) — partial via [agent-commerce-payments-mcp](https://github.com/CSOAI-ORG/agent-commerce-payments-mcp)
-- ◐ **x402** (Coinbase HTTP 402) — partial via api.meok.ai gateway
-- → **OASF / AGNTCY** (Cisco Outshift + Linux Foundation) — Q3 bridge
-- 👁 **ANP** (Cisco Agent Network) — watch-list
+Need help getting compliant? **[Book a free 15-min diagnostic →](https://cal.com/csoai/august-audit)**
 
-**Pricing options:**
+## 🏢 Enterprise
 
-| Option | Price | Best for |
-|---|---|---|
-| Self-host (this MCP) | £0 — MIT | Devs |
-| This MCP Starter | £29/mo | One-MCP teams |
-| This MCP Pro | £79/mo | Production + 24h SLA |
-| [Universal PAYG](https://buy.stripe.com/00w3cxcgAaEGcIBcyQ8k90s) | £29/mo + £0.0002/call | Spiky usage across many MCPs |
-| Substrate bundle (this category) | £99-£499/mo | A whole pack |
-| [MEOK Universe](https://buy.stripe.com/cNi9AV0xS8wy5g9aqI8k90u) | £1,499/mo | All 47 MCPs, 500K calls |
+Need custom development, SLA guarantees, or white-label deployment?
 
-Each tier above the free self-host adds HMAC-signed attestations verifiable at
-`verify.meok.ai`. Linux Foundation governance on the A2A spine means EU regulated
-buyers can deploy without vendor-lock-in objections.
+- **Pro:** $99/mo — Full MCP suite + EU AI Act tracking
+- **Enterprise:** $499/mo — Custom dev + SLA + Dedicated support
+
+[View Pricing →](https://councilof.ai/pricing) | [Contact Sales →](mailto:sales@csoai.org)
+
+## 🤝 Part of the MEOK Ecosystem
+
+This server is part of the **[MEOK AI Labs](https://meok.ai)** ecosystem — 300+ MCP servers for sovereign AI governance.
+
+| Domain | Purpose |
+|--------|---------|
+| [councilof.ai](https://councilof.ai) | EU AI Act compliance marketplace |
+| [safetyof.ai](https://safetyof.ai) | AI safety & monitoring |
+| [meok.ai](https://meok.ai) | Sovereign AI platform |
+| [cobolbridge.ai](https://cobolbridge.ai) | Legacy modernization |
+
+## 📜 License
+
+MIT © [CSOAI-ORG](https://github.com/CSOAI-ORG)
+
+---
+
+<p align="center">
+  <sub>Built with 💜 by <a href="https://meok.ai">MEOK AI Labs</a> · UK Companies House 16939677</sub>
+</p>
