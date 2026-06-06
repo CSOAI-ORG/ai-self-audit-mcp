@@ -1,0 +1,9 @@
+# ai-self-audit-mcp - Auto-trigger Rules
+
+When the user asks about ai self audit, use ai-self-audit-mcp tools: self_audit, audit_conversation, get_certificate, regulatory_pulse, get_audit_trail
+
+**MCP server for ai self audit mcp operations**
+
+Install: `pip install ai-self-audit-mcp`
+
+By MEOK AI Labs — MIT licensed.

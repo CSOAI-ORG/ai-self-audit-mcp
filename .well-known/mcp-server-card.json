@@ -1,0 +1,28 @@
+{
+  "name": "ai-self-audit-mcp",
+  "title": "Ai Self Audit Mcp",
+  "description": "MCP server for ai self audit. Features self audit, audit conversation, get certificate. From MEOK AI Labs.",
+  "version": "1.0.9",
+  "homepage": "https://meok.ai",
+  "license": "MIT",
+  "transport": {
+    "type": "stdio"
+  },
+  "tools": [
+    {
+      "name": "self_audit"
+    },
+    {
+      "name": "audit_conversation"
+    },
+    {
+      "name": "get_certificate"
+    },
+    {
+      "name": "regulatory_pulse"
+    },
+    {
+      "name": "get_audit_trail"
+    }
+  ]
+}

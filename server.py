@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
-"""AI Self-Audit MCP — MEOK AI Labs. AI agents audit their OWN compliance."""
+"""
+AI Self-Audit MCP — MEOK AI Labs. AI agents audit their OWN compliance."""
 
 import json, hashlib, re, os
 from datetime import datetime, timezone, timedelta
@@ -8,7 +9,6 @@ from collections import defaultdict
 from mcp.server.fastmcp import FastMCP
 import sys, os
 
-sys.path.insert(0, os.path.expanduser("~/clawd/meok-labs-engine/shared"))
 from auth_middleware import check_access
 
 # Tier authentication (connects to Stripe subscriptions)
@@ -29,7 +29,7 @@ def _check_rate_limit(caller="anonymous"):
     now = datetime.now(timezone.utc)
     _usage[caller] = [t for t in _usage[caller] if (now - t).total_seconds() < 86400]
     if len(_usage[caller]) >= FREE_DAILY_LIMIT:
-        return f"Free tier limit. Upgrade: https://meok.ai/pricing"
+        return f"Free tier limit. Upgrade: https://councilof.ai"
     _usage[caller].append(now)
     return None
 
@@ -92,7 +92,7 @@ def self_audit(system_description: str, article: str = "all", api_key: str = "")
     """
     allowed, msg, tier = check_access(api_key)
     if not allowed:
-        return {"error": msg, "upgrade_url": "https://meok.ai/pricing"}
+        return {"error": msg, "upgrade_url": "https://councilof.ai"}
     if err := _check_rate_limit():
         return {"error": err}
     desc = system_description.lower()
@@ -173,7 +173,7 @@ def audit_conversation(text: str, api_key: str = "") -> str:
     """
     allowed, msg, tier = check_access(api_key)
     if not allowed:
-        return {"error": msg, "upgrade_url": "https://meok.ai/pricing"}
+        return {"error": msg, "upgrade_url": "https://councilof.ai"}
     if err := _check_rate_limit():
         return {"error": err}
     issues = []
@@ -243,7 +243,7 @@ def get_certificate(system_name: str, description: str, api_key: str = "") -> st
     """
     allowed, msg, tier = check_access(api_key)
     if not allowed:
-        return {"error": msg, "upgrade_url": "https://meok.ai/pricing"}
+        return {"error": msg, "upgrade_url": "https://councilof.ai"}
     if err := _check_rate_limit():
         return {"error": err}
     ts = datetime.now(timezone.utc)
@@ -307,14 +307,14 @@ def regulatory_pulse(api_key: str = "") -> str:
     """
     allowed, msg, tier = check_access(api_key)
     if not allowed:
-        return {"error": msg, "upgrade_url": "https://meok.ai/pricing"}
+        return {"error": msg, "upgrade_url": "https://councilof.ai"}
     now = datetime.now(timezone.utc)
     deadlines = [
         ("EU AI Act Prohibited", "2025-02-02", "IN FORCE"),
         ("South Korea AI Act", "2026-01-22", "IN FORCE"),
         ("EU AI Act High-Risk", "2026-08-02", "PENDING"),
         ("UK AI Bill", "2026-12-31", "DRAFT"),
-        ("EU AI Act Annex I", "2027-08-02", "PENDING"),
+        ("EU AI Act Annex I", "2028-08-02", "PENDING"),
     ]
     result = []
     for name, date, status in deadlines:
@@ -371,9 +371,12 @@ def get_audit_trail(api_key: str = "") -> str:
     """
     allowed, msg, tier = check_access(api_key)
     if not allowed:
-        return {"error": msg, "upgrade_url": "https://meok.ai/pricing"}
+        return {"error": msg, "upgrade_url": "https://councilof.ai"}
     return {"total": len(_audit_log), "audits": _audit_log[-50:]}
 
 
-if __name__ == "__main__":
+def main():
     mcp.run()
+
+if __name__ == '__main__':
+    main()

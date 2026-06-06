@@ -1,0 +1,36 @@
+# ai-self-audit-mcp
+# **MCP server for ai self audit mcp operations**
+
+## Install
+```bash
+pip install ai-self-audit-mcp
+```
+
+## Auth & Rate Limits
+- Free tier: 10 calls/day. No API key required.
+- Pro tier (£79/mo): unlimited + signed attestations.
+- Enterprise (£1,499/mo): white-label.
+
+## Tools
+
+### `self_audit`
+AI agent self-audits EU AI Act compliance. Call: 'Am I compliant right now?'
+
+### `audit_conversation`
+Audit conversation for bias, PII, manipulation, transparency issues.
+
+### `get_certificate`
+Generate timestamped compliance certificate for audit trail.
+
+### `regulatory_pulse`
+Current regulatory deadlines and enforcement status.
+
+### `get_audit_trail`
+Return audit trail of all self-audit checks.
+
+
+## Maintainer
+MEOK AI Labs · hello@meok.ai · https://meok.ai · MIT licensed
+
+## Pairs with
+Governance moat: pair this tool with any of MEOK's 38 governance MCPs (EU AI Act, DORA, NIS2, CRA, GDPR, ISO 42001, etc.) for full compliance coverage.

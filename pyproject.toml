@@ -4,7 +4,7 @@ build-backend = "hatchling.build"
 
 [project]
 name = "ai-self-audit-mcp"
-version = "1.0.5"
+version = "1.0.9"
 readme = "README.md"
 description = "MCP server for ai self audit. Features self audit, audit conversation, get certificate. From MEOK AI Labs."
 license = {file = "LICENSE"}
@@ -25,7 +25,7 @@ Repository = "https://github.com/CSOAI-ORG/ai-self-audit-mcp"
 
 [tool.hatch.build.targets.wheel]
 packages = ["."]
-only-include = ["server.py"]
+only-include = ["server.py", "auth_middleware.py"]
 
 [project.scripts]
 ai_self_audit_mcp = "server:main"
