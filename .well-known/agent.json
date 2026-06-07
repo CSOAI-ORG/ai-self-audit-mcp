@@ -1,0 +1,68 @@
+{
+  "name": "ai-self-audit-mcp",
+  "description": "Ai Self Audit MCP Server by MEOK AI Labs",
+  "url": "https://proofof.ai/scorecard/ai-self-audit-mcp.html",
+  "version": "1.0.9",
+  "protocolVersion": "0.2.0",
+  "provider": {
+    "organization": "MEOK AI Labs",
+    "url": "https://meok.ai"
+  },
+  "capabilities": {
+    "streaming": false,
+    "pushNotifications": false
+  },
+  "defaultInputModes": [
+    "text"
+  ],
+  "defaultOutputModes": [
+    "text"
+  ],
+  "skills": [
+    {
+      "id": "self_audit",
+      "name": "Self Audit",
+      "description": "self_audit via ai-self-audit-mcp",
+      "tags": [
+        "mcp",
+        "compliance"
+      ]
+    },
+    {
+      "id": "audit_conversation",
+      "name": "Audit Conversation",
+      "description": "audit_conversation via ai-self-audit-mcp",
+      "tags": [
+        "mcp",
+        "compliance"
+      ]
+    },
+    {
+      "id": "get_certificate",
+      "name": "Get Certificate",
+      "description": "get_certificate via ai-self-audit-mcp",
+      "tags": [
+        "mcp",
+        "compliance"
+      ]
+    },
+    {
+      "id": "regulatory_pulse",
+      "name": "Regulatory Pulse",
+      "description": "regulatory_pulse via ai-self-audit-mcp",
+      "tags": [
+        "mcp",
+        "compliance"
+      ]
+    },
+    {
+      "id": "get_audit_trail",
+      "name": "Get Audit Trail",
+      "description": "get_audit_trail via ai-self-audit-mcp",
+      "tags": [
+        "mcp",
+        "compliance"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,23 @@
+{
+  "acpVersion": "0.1",
+  "agent": {
+    "name": "ai-self-audit-mcp",
+    "description": "Ai Self Audit MCP Server by MEOK AI Labs",
+    "version": "1.0.9",
+    "provider": "MEOK AI Labs",
+    "interfaces": [
+      {
+        "type": "mcp",
+        "transport": "stdio",
+        "package": "ai-self-audit-mcp"
+      }
+    ],
+    "capabilities": [
+      "self_audit",
+      "audit_conversation",
+      "get_certificate",
+      "regulatory_pulse",
+      "get_audit_trail"
+    ]
+  }
+}
