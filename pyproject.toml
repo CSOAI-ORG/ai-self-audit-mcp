@@ -4,7 +4,7 @@ build-backend = "hatchling.build"
 
 [project]
 name = "ai-self-audit-mcp"
-version = "1.0.9"
+version = "1.0.12"
 readme = "README.md"
 description = "MCP server for ai self audit. Features self audit, audit conversation, get certificate. From MEOK AI Labs."
 license = {file = "LICENSE"}
