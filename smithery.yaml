@@ -34,3 +34,16 @@ tools:
 - name: get_audit_trail
   description: Return audit trail of all self-audit checks.
   parameters: []
+startCommand:
+  type: stdio
+  configSchema:
+    type: object
+    required:
+    - apiKey
+    properties:
+      apiKey:
+        type: string
+        description: Your MEOK API Key
+  commandFunction: "(config) => ({\n  command: 'uvx',\n  args: ['ai-self-audit-mcp',\
+    \ '--api-key', config.apiKey],\n  env: {\n    MEOK_API_KEY: config.apiKey\n  }\n\
+    })"
