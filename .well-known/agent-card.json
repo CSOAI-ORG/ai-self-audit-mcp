@@ -1,0 +1,112 @@
+{
+  "name": "Ai Self Audit Mcp",
+  "version": "1.0.9",
+  "url": "https://mcp.meok.ai/ai-self-audit-mcp/a2a",
+  "capabilities": {
+    "streaming": false,
+    "pushNotifications": false,
+    "stateTransitionHistory": false
+  },
+  "protocolVersion": "0.3.0",
+  "description": "MCP server for ai self audit. Features self audit, audit conversation, get certificate. From MEOK AI Labs.",
+  "provider": {
+    "organization": "MEOK AI LABS",
+    "url": "https://meok.ai"
+  },
+  "defaultInputModes": [
+    "application/json",
+    "text/plain"
+  ],
+  "defaultOutputModes": [
+    "application/json",
+    "text/plain"
+  ],
+  "skills": [
+    {
+      "id": "self_audit",
+      "name": "Self Audit",
+      "description": "Self Audit — a tool of the ai-self-audit-mcp MCP.",
+      "tags": [
+        "audit"
+      ],
+      "inputModes": [
+        "application/json",
+        "text/plain"
+      ],
+      "outputModes": [
+        "application/json",
+        "text/plain"
+      ]
+    },
+    {
+      "id": "audit_conversation",
+      "name": "Audit Conversation",
+      "description": "Audit Conversation — a tool of the ai-self-audit-mcp MCP.",
+      "tags": [
+        "audit"
+      ],
+      "inputModes": [
+        "application/json",
+        "text/plain"
+      ],
+      "outputModes": [
+        "application/json",
+        "text/plain"
+      ]
+    },
+    {
+      "id": "get_certificate",
+      "name": "Get Certificate",
+      "description": "Get Certificate — a tool of the ai-self-audit-mcp MCP.",
+      "tags": [
+        "audit"
+      ],
+      "inputModes": [
+        "application/json",
+        "text/plain"
+      ],
+      "outputModes": [
+        "application/json",
+        "text/plain"
+      ]
+    },
+    {
+      "id": "regulatory_pulse",
+      "name": "Regulatory Pulse",
+      "description": "Regulatory Pulse — a tool of the ai-self-audit-mcp MCP.",
+      "tags": [
+        "audit"
+      ],
+      "inputModes": [
+        "application/json",
+        "text/plain"
+      ],
+      "outputModes": [
+        "application/json",
+        "text/plain"
+      ]
+    },
+    {
+      "id": "get_audit_trail",
+      "name": "Get Audit Trail",
+      "description": "Get Audit Trail — a tool of the ai-self-audit-mcp MCP.",
+      "tags": [
+        "audit"
+      ],
+      "inputModes": [
+        "application/json",
+        "text/plain"
+      ],
+      "outputModes": [
+        "application/json",
+        "text/plain"
+      ]
+    }
+  ],
+  "documentationUrl": "https://meok.ai",
+  "x-meok": {
+    "mcp_name": "ai-self-audit-mcp",
+    "verifier": "https://proofof.ai/verify",
+    "governed_by": "CSOAI 52-article charter"
+  }
+}
